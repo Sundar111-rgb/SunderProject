@@ -4,17 +4,17 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import * as Icon from 'react-bootstrap-icons';
 import Modal from 'react-bootstrap/Modal'
 //import ModalFooter from 'react-bootstrap/ModalFooter'
-import axios from 'axios';
+//import axios from 'axios';
 
 class App extends Component {
     constructor() {
           super();
           this.state = {
              employeeData : [
-                 {name:'sundar',age:27,email:'kumarsun53@gmail.com'    ,mobile:'8294439986'},
-                 {name:'Pooja' ,age:22,email:'poojamauryajnp@gmail.com',mobile:'7007949890'},
-                 {name:'Sameer',age:24,email:'Sameerchauhan@gmail.com' ,mobile:'8294434394'},
-                 {name:'Sapna' ,age:23,email:'sapnarathore@gmail.com'  ,mobile:'8294489765'},
+                 {name:'sundar' ,age:27,email:'kumarsun53@gmail.com'    ,mobile:'8294439986'},
+                 {name:'Poona'  ,age:22,email:'poojamauryajnp@gmail.com',mobile:'7007949890'},
+                 {name:'Seamier',age:24,email:'Sameerchauhan@gmail.com' ,mobile:'8294434394'},
+                 {name:'Sana'   ,age:23,email:'sapnarathore@gmail.com'  ,mobile:'8294489765'},
              ],
               index:0,
               act:0,
@@ -26,30 +26,6 @@ class App extends Component {
    ShowModal = () => {
      this.setState({show:!this.state.show})
    }
-  componentDidMount() {
-      // fetch('http://localhost:53165/Student/GetAllStudents')
-      //     .then(response => response.json())
-      //     .then(data => console.log('------>>>>>',data));
-      axios.get('http://localhost:53165/Student/GetAllStudents')
-          .then(response => {
-              console.log(response.data);
-
-          })
-          .catch(function (error) {
-              console.log(error);
-          })
-
-      // fetch('http://localhost:53165/Student/GetAllStudents')
-      //     .then((response) => response.json())
-      //     .then((json) => {
-      //         console.log('--------------->>>>>>>>>>>.',json)
-      //     })
-      //     .catch((error) => {
-      //         console.error('>>>>>>>>>>>>>>>>>',error);
-      //     });
-
-
-  }
 
     handleSubmit = (e)  => {
     e.preventDefault();
@@ -109,54 +85,57 @@ class App extends Component {
       let employeeData = this.state.employeeData;
     return (
 
-        <div className='container'>
+        <div className='container' style={{background:'#1E9EA9'}}>
             <br />
-            <h5><center>React CRUD with Bootstrap</center></h5>
+            <h5  style={{color:'#B0F3EC'}}><center>React CRUD with Bootstrap</center></h5>
                 <br />
            <form ref='myform' className="form-group">
 
             <form className="form-group">
-                <input className="form-control" type="text" ref="txtName" placeholder="Name"/>
+                <input className="form-control" style={{background:'#DBECEA',lineHeight:1}} type="text" ref="txtName" placeholder="Name"/>
             </form>
 
             <form className="form-group">
-                <input className="form-control" type="text" ref="txtAge" placeholder="Age"/>
+                <input className="form-control" style={{background:'#DBECEA',lineHeight:1}} type="text" ref="txtAge" placeholder="Age"/>
             </form>
 
             <form className="form-group">
-                <input className="form-control" type="text" ref="txtEmail" placeholder="Email"/>
+                <input className="form-control" style={{background:'#DBECEA',lineHeight:1}} type="text" ref="txtEmail" placeholder="Email"/>
             </form>
 
             <form className="form-group">
-                 <input className="form-control" type="text" ref="txtMobile" placeholder="Mobile"/>
+                 <input className="form-control" style={{background:'#DBECEA', lineHeight:1}} type="text" ref="txtMobile" placeholder="Mobile"/>
             </form>
 
-          <button className="btn btn-primary" onClick={(e) => this.handleSubmit(e)}><Icon.Save size={20} /></button>
+          <button style={{lineHeight:1}} className="btn btn-primary" onClick={(e) => this.handleSubmit(e)}><Icon.Save size={14} />&nbsp;Save</button>
+              &nbsp;&nbsp;&nbsp;&nbsp; <button style={{lineHeight:1}} className="btn btn-primary" onClick={(e) => this.handleSubmit(e)}><Icon.XCircle size={14} />&nbsp;Clear</button>
         </form>
             <br />
             <table className="table table-hover table-striped">
                 <tr>
-                    <td>Name  </td>
-                    <td>Age   </td>
-                    <td>Email </td>
-                    <td>Mobile</td>
-                    <td colSpan={2}><center>Actions</center></td>
+                    <td  style={{color:'#ffffff'}}>Name  </td>
+                    <td  style={{color:'#ffffff'}}>Age   </td>
+                    <td  style={{color:'#ffffff'}}>Email </td>
+                    <td  style={{color:'#ffffff'}}>Mobile</td>
+                    <td colSpan={2}  style={{color:'#ffffff'}}>Actions</td>
                 </tr>
                 {
                     employeeData.map((data,i) =>
                      <tr key={i}>
-                         <td>{data.name  }</td>
-                         <td>{data.age   }</td>
-                         <td>{data.email }</td>
-                         <td>{data.mobile}</td>
-                         <td><button className="btn btn-primary" onClick={(e) => this.handleEdit(i)}><Icon.PencilSquare size={20} color="royalblue" /></button></td>
-                         <td><button className="btn btn-primary" onClick={(e) => this.handleDelete(i)}><Icon.Trash size={20} color="royalblue" /></button></td>
+                         <td  style={{color:'#ffffff'}}>{data.name  }</td>
+                         <td  style={{color:'#ffffff'}}>{data.age   }</td>
+                         <td  style={{color:'#ffffff'}}>{data.email }</td>
+                         <td  style={{color:'#ffffff'}}>{data.mobile}</td>
+                         <td colSpan={2}>
+                             <button style={{lineHeight:1}} className="btn btn-primary" onClick={(e) => this.handleEdit(i)}><Icon.PencilSquare size={15} color="#ffffff" />&nbsp;Edit</button>
+                            &nbsp;&nbsp; <button style={{lineHeight:1}} className="btn btn-primary" onClick={(e) => this.handleDelete(i)}><Icon.Trash size={15} color="#ffffff" />&nbsp;Delete</button>
+                         </td>
                      </tr>
                     )
                 }
             </table>
             <button onClick={this.ShowModal}>Hello</button>
-            <Modal show={this.state.show}>
+            <Modal show={this.state.show} style={{ maxWidth:2000 }}>
                 <Modal.Header closeButton={() => this.ShowModal}>
                     <Modal.Title><h5><center>React CRUD with Bootstrap</center></h5></Modal.Title>
                 </Modal.Header>
@@ -166,7 +145,7 @@ class App extends Component {
                         <br />
 
                         <br />
-                        <form ref='myform' className="form-group">
+                        <form ref="myform" className="form-group">
 
                             <form className="form-group">
                                 <input className="form-control" type="text" ref="txtName" placeholder="Name"/>
@@ -202,8 +181,10 @@ class App extends Component {
                                         <td>{data.age   }</td>
                                         <td>{data.email }</td>
                                         <td>{data.mobile}</td>
-                                        <td><button className="btn btn-primary" onClick={(e) => this.handleEdit(i)}><Icon.PencilSquare size={20} color="royalblue" /></button></td>
-                                        <td><button className="btn btn-primary" onClick={(e) => this.handleDelete(i)}><Icon.Trash size={20} color="royalblue" /></button></td>
+                                        <td colSpan={2}>
+                                        <button className="btn btn-primary" onClick={(e) => this.handleEdit(i)}><Icon.PencilSquare size={20} color="royalblue" /></button>
+                                        <button className="btn btn-primary" onClick={(e) => this.handleDelete(i)}><Icon.Trash size={20} color="royalblue" /></button>
+                                        </td>
                                     </tr>
                                 )
                             }
