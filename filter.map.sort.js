@@ -25,8 +25,7 @@ let bigCitiess = cities.filter((e) => {
 });
 console.log(bigCitiess);
 
-
-Output -----------------------------------------------
+Output --------------
 
 "Los Angeles:3"
 "New York:1"
@@ -47,4 +46,30 @@ Output -----------------------------------------------
 }]
 
 
+-------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<body>
 
+<h2>JavaScript Array.reduce()</h2>
+
+<p>This example finds the sum of all numbers in an array:</p>
+
+<p id="demo"></p>
+
+<script>
+var numbers = [45, 4, 9, 16, 25];
+var sum = numbers.reduce((total, value) => {
+  return total + value;
+},100);
+
+document.getElementById("demo").innerHTML = "The sum is " + sum;
+
+</script>
+
+</body>
+</html>
+
+output ---------------------------------
+
+The sum is 199
