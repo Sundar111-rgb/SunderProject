@@ -26,6 +26,10 @@ class App extends Component {
      this.setState({show:!this.state.show})
    }
 
+   componentDidMount() {
+     localStorage.setItem("EmployeeData", JSON.stringify(this.state.employeeData));
+   }
+
     handleSubmit = (e)  => {
     e.preventDefault();
     let employeeData = this.state.employeeData;
@@ -55,6 +59,7 @@ class App extends Component {
     this.setState({
         employeeData: employeeData,buttonName:'Save'
     })
+    this.handleClear(e);
       
   }
 
@@ -89,6 +94,7 @@ class App extends Component {
         this.refs.txtAge   .value = '';
         this.refs.txtEmail .value = '';
         this.refs.txtMobile.value = '';
+        this.setState({buttonName:'Save',act:0});
     }
 
   render() {
@@ -102,8 +108,8 @@ class App extends Component {
            <form ref='myform' className="form-group">
 
             <form className="form-group">
-                <input className="form-control" style={{background:'#DBECEA',lineHeight:1}} type="text" ref="txtName" placeholder="Name"/>
-            </form>
+              <input className="form-control" style={{background:'#DBECEA',lineHeight:1}} type="text" ref="txtName" placeholder="Name"/>
+              </form>
 
             <form className="form-group">
                 <input className="form-control" style={{background:'#DBECEA',lineHeight:1}} type="text" ref="txtAge" placeholder="Age"/>
@@ -220,5 +226,4 @@ class App extends Component {
 }
 
 export default App;
-
 
