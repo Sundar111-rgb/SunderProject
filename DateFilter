@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to extract the second and the third elements from the array.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var fruits = "2021-02-21T00:00:00+05:30";
+  var citrus = fruits.slice(0, 10);
+  if(citrus.charAt(9) === 'T')
+  {
+  citrus = fruits.slice(0, 9);
+  document.getElementById("demo").innerHTML = citrus;
+  }
+  else
+  {
+  citrus = fruits.slice(0, 10);
+  document.getElementById("demo").innerHTML = citrus;
+  }
+}
+</script>
+
+</body>
+</html>
