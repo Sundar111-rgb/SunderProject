@@ -1,0 +1,35 @@
+const lineItem = [
+    {
+      "lineWiseItem": [
+        {
+          "quantity": 2,
+          "noOfColors": 1,
+          "setHeaderId": "S/PR-PID/AA2332_1",
+          "sizeCode": "24326",
+          "size": "81cm/12-13years",
+          "colorCode": "#234567",
+          "color": "red",
+          "ratio": 2,
+          "sumOfRatio": 2,
+          "noOfSets": "1",
+          "imagePath": "",
+          "sizeType": "complex",
+          "ppQty": 2,
+          "totalAmount": 1288,
+          "tax": 64.4,
+          "netAmountTotal": 1352.4
+          }
+       ]
+    }
+]
+ 
+const sss = Object.keys(lineItem[0].lineWiseItem[0]);
+
+ const hhh = Object.keys(lineItem[0].lineWiseItem[0]).map((item,i) => {
+  return item;
+ })
+  
+  
+ console.log(hhh[0])
+ 
+ console.log(Object.keys(lineItem[0].lineWiseItem[0]));
